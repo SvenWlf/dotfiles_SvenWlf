@@ -53,6 +53,7 @@ vim.opt.undofile = true
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
+    {'integrate-with-mason-nvim'},
     {'github/copilot.vim'},
     {'mbbill/undotree'},
     {'ggandor/leap.nvim',
