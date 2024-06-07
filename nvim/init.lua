@@ -85,13 +85,7 @@ require('lazy').setup({
                 require('neoclip').setup()
             end
             },
-            {"nvim-telescope/telescope-live-grep-args.nvim"},
-        },
-        config = function()
-            local telescope = requires("telescope")
-            telescope.setup({})
-            telescope.load_extension("live_grep_args")
-        end
+    },
     },
     {'nvim-treesitter/nvim-treesitter'},
     {'EdenEast//nightfox.nvim'},
@@ -231,6 +225,7 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+
 --
 --Telescope
 --
