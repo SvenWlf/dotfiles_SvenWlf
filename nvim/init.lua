@@ -84,7 +84,13 @@ require('lazy').setup({
                 require('neoclip').setup()
             end
             },
+            {"nvim-telescope/telescope-live-grep-args.nvim"},
         },
+        config = function()
+            local telescope = requires("telescope")
+            telescope.setup({})
+            telescope.load_extension("live_grep_args")
+        end
     },
     {'nvim-treesitter/nvim-treesitter'},
     {'EdenEast//nightfox.nvim'},
@@ -195,18 +201,16 @@ cmp.setup({
 --Treesitter
 --
 require'nvim-treesitter.configs'.setup {
-    -- A list of parser names, or "all" (the five listed parsers should always be installed)
-    ensure_installed = { "lua", "vim", "vimdoc" },
-
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
 
     -- Automatically install missing parsers when entering buffer
     -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-    auto_install = false,
+    auto_install = true,
 
     highlight = {
         enable = true,
+        disable = { "vimdoc" },
 
         -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
         -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
