@@ -53,6 +53,7 @@ vim.opt.undofile = true
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
+    {'vigoux/LanguageTool.nvim'},
     {'integrate-with-mason-nvim'},
     {'github/copilot.vim'},
     {'mbbill/undotree'},
@@ -220,6 +221,8 @@ require'nvim-treesitter.configs'.setup {
 --
 vim.g.mapleader = ' '
 vim.keymap.set("n", "<leader>c", vim.cmd.Ex)
+vim.api.nvim_set_keymap('n', 'j', 'gj', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = true, silent = true })
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -268,3 +271,8 @@ vim.keymap.set({'n', 'x', 'o'}, '<A-w>', '<Plug>(leap-from-window)')
 ----copilot
 --
 vim.keymap.set('i', '<C-a>', 'copilot#Accept()', {expr=true, silent=true})
+
+--
+----LanguageTool
+--
+vim.g.languagetool_server_jar = 'C:/Users/sven.wolf/LanguageTool-6.4/languagetool-server.jar'
